@@ -32,5 +32,23 @@
 body{
     font-family: 'SUSE', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
     sans-serif;
+    background: url("images/bg.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: -1;
     height: 100vh;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(1, 58, 99, 0.9), var(--classic-parchment));
+    z-index: 1;
 }
