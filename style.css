@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+:root{
+
+    /* colors */
+    --deep-blue-sea: #013a63;
+    --ocean-blue: #4682b4;
+    --pirate-gold: #ffd700;
+    --classic-parchment: #f5f5ec;
+    --dark-text: #333333;
+    --light-text: #f5f5dc;
+
+    /* typography */
+
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-600: 600;
+    --fw-700: 700;
+}
+
+/* Initial */
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'SUSE', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+    sans-serif;
+    height: 100vh;
+}
