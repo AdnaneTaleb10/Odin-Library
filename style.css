@@ -177,11 +177,32 @@ article{
     cursor: pointer;
 }
 
+.icons i:hover{
+    color: var(--ocean-blue);
+}
+
 aside{
+    position: sticky;
     background-color: var(--deep-blue-sea);
     padding: 2rem 2.5rem;
     margin-left: 40px;
     border-radius: 10px;
+    box-shadow: 1px 3px 6px var(--deep-blue-sea);
+    flex-shrink: 0;
+    max-width: 600px;
+    transition: max-width 2s ease-out, opacity 0.5s ease, margin 1.5s ease, padding 0.5s ease-out;
+}
+
+aside.hide {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-left: 0;
+    padding: 0;
+  }
+
+aside.hide + article {
+    width: 100%; /* Article takes full width when aside is hidden */
 }
 
 aside form{
