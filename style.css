@@ -114,6 +114,7 @@ section > p{
     transition: all 0.5s ease;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 .add-book-btn:hover{
@@ -171,4 +172,25 @@ article{
     gap: 8px;
     margin-top: 15px;
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    z-index: 10;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: var(--deep-blue-sea);
+    margin-top: 40px;
 }
