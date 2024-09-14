@@ -161,7 +161,46 @@
                 </div>
             </article>
 
-            <aside></aside>
+            <aside>
+                <form action="#" method="post">
+                    <legend>
+                        <span>Add a book!</span>
+                        <div class="icon-container">
+                          <i class="fa-solid fa-book"></i>
+                        </div>
+                    </legend>
+
+                    <div class="input-container">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Treasure Island" autocomplete="off" required>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" placeholder="Robert Louis Stevenson" autocomplete="off" required>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="genre">Genre</label>
+                        <input type="text" id="genre" name="genre" placeholder="Adventure, Fiction" autocomplete="off" required>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="year">Year</label>
+                        <input type="number" id="year" name="year" placeholder="1883" max="2024" autocomplete="off" required>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="age-range">Age range</label>
+                        <input type="text" id="age-range" name="age-range" placeholder="+10" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="reset">Reset</button>
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+            </aside>
         </div>
     </main>
 
