@@ -15,6 +15,66 @@ let addBookButton = document.querySelector('.add-book-btn');
 let form = document.querySelector('form');
 
 
+//Function to create and display a book card
+function createBookCard(bookObject){
+    //Create a div element with the class 'card'
+    let card = document.createElement('div');
+    card.classList.add('card');
+
+    //Create and append the book title
+    let title = document.createElement('h3');
+    title.textContent = bookObject.title;
+    card.appendChild(title);
+
+    //create and append the book author
+    let author = document.createElement('h5');
+    author.textContent = bookObject.author
+    card.appendChild(author);
+
+    //Create and append the book year
+    let year = document.createElement('p');
+    year.textContent = bookObject.year;
+    card.appendChild(year);
+
+    //Create and append the book genre
+    let genre = document.createElement('p');
+    genre.textContent = bookObject.genre;
+    card.appendChild(genre);
+
+    //Create and append the book age range 
+    let ageRange = document.createElement('p');
+    ageRange.textContent = bookObject.ageRange;
+    card.appendChild(ageRange);
+
+    // Create a div for icons and append it to the card
+    let iconsDiv = document.createElement('div');
+    iconsDiv.classList.add('icons');
+
+    // Create the book icon and append it
+    let bookIcon = document.createElement('i');
+    bookIcon.classList.add('fa-solid', 'fa-book');
+    iconsDiv.appendChild(bookIcon);
+
+    // Create the star icon and append it
+    let starIcon = document.createElement('i');
+    starIcon.classList.add('fa-regular', 'fa-star');
+    iconsDiv.appendChild(starIcon);
+
+    // Create the trash icon and append it
+    let trashIcon = document.createElement('i');
+    trashIcon.classList.add('fa-regular', 'fa-trash-can');
+    iconsDiv.appendChild(trashIcon);
+
+    // Append the iconsDiv to the card
+    card.appendChild(iconsDiv);
+
+    document.querySelector('article').appendChild(card);
+}
+
+
+
+
+//Display the aside element to add new books
 addBookButton.addEventListener('click', () => {
     asideElement.classList.toggle('hide');
   });
@@ -45,9 +105,10 @@ starIcons.forEach((star) => {
     })
 })
 
+
+
 //Add a new book to the library 
 form.addEventListener('submit' , (e) => {
-
     e.preventDefault();
 
     let bookObject = {
@@ -58,6 +119,7 @@ form.addEventListener('submit' , (e) => {
         ageRange : document.querySelector('#age-range').value
     }
 
+    createBookCard(bookObject);
     
 })
 
