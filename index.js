@@ -14,7 +14,6 @@ let addBookButton = document.querySelector('.add-book-btn');
 //Target the form 
 let form = document.querySelector('form');
 
-
 //Function to create and display a book card
 function createBookCard(bookObject){
     //Create a div element with the class 'card'
@@ -68,11 +67,14 @@ function createBookCard(bookObject){
     // Append the iconsDiv to the card
     card.appendChild(iconsDiv);
 
+
+    card.style.opacity = '0';
     document.querySelector('article').appendChild(card);
+
+    setTimeout(() => {
+        card.style.opacity = '1';
+    } , 200)
 }
-
-
-
 
 //Display the aside element to add new books
 addBookButton.addEventListener('click', () => {
@@ -105,6 +107,15 @@ starIcons.forEach((star) => {
     })
 })
 
+//Delete a book form the library 
+trashIcon.forEach((trash) => {
+    trash.addEventListener('click' , (e) => {
+        e.target.closest('.card').classList.add('hide');
+        setTimeout(() => {
+            e.target.closest('.card').remove()
+        }, 800);
+    })
+})
 
 
 //Add a new book to the library 
