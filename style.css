@@ -357,3 +357,9 @@ footer{
     color: var(--deep-blue-sea);
     margin-top: 40px;
 }
+
+footer a{
+    text-decoration: none;
+    color: var(--ocean-blue);
+    font-weight: 400;
+}
