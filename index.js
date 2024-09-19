@@ -25,9 +25,9 @@ function createBookCard(bookObject){
     title.textContent = bookObject.title;
     card.appendChild(title);
 
-    //create and append the book author
+    //Create and append the book author
     let author = document.createElement('h5');
-    author.textContent = bookObject.author
+    author.textContent = bookObject.author;
     card.appendChild(author);
 
     //Create and append the book year
@@ -67,70 +67,83 @@ function createBookCard(bookObject){
     // Append the iconsDiv to the card
     card.appendChild(iconsDiv);
 
-
+    // Set initial opacity for the fade-in animation
     card.style.opacity = '0';
+    card.style.transition = 'opacity 0.5s'; // Set transition for opacity changes
+
     document.querySelector('article').appendChild(card);
 
+    // Fade in the card
     setTimeout(() => {
         card.style.opacity = '1';
-    } , 200)
+    } , 200);
+
+    // Attach event listeners to the newly created icons
+    addBookIconListener(bookIcon);
+    addStarIconListener(starIcon);
+    addTrashIconListener(trashIcon);
 }
+
+// Function to handle book icon click (reading list)
+function addBookIconListener(bookIcon) {
+    bookIcon.addEventListener('click', (e) => {
+        if (e.target.classList.contains('fa-book')) {
+            e.target.classList.remove('fa-book');
+            e.target.classList.add('fa-book-open-reader');
+        } else {
+            e.target.classList.remove('fa-book-open-reader');
+            e.target.classList.add('fa-book');
+        }
+    });
+}
+
+// Function to handle star icon click (favorites)
+function addStarIconListener(starIcon) {
+    starIcon.addEventListener('click', (e) => {
+        if (e.target.classList.contains('fa-regular')) {
+            e.target.classList.remove('fa-regular');
+            e.target.classList.add('fa-solid');
+        } else {
+            e.target.classList.remove('fa-solid');
+            e.target.classList.add('fa-regular');
+        }
+    });
+}
+
+// Function to handle trash icon click (deleting)
+function addTrashIconListener(trashIcon) {
+    trashIcon.addEventListener('click', (e) => {
+        let card = e.target.closest('.card');
+
+        // Add a fade-out animation before removing the card
+        card.style.opacity = '0'; // Start fade-out
+        setTimeout(() => {
+            card.remove(); // Remove card after the fade-out
+        }, 500); // Matches the transition duration
+    });
+}
+
+// Attach listeners to the initial set of icons
+bookIcons.forEach(addBookIconListener);
+starIcons.forEach(addStarIconListener);
+trashIcons.forEach(addTrashIconListener);
 
 //Display the aside element to add new books
 addBookButton.addEventListener('click', () => {
     asideElement.classList.toggle('hide');
-  });
-
-//Add a book to the reading list
-bookIcons.forEach((book) => {
-    book.addEventListener('click' , (e) => {
-        if(e.target.classList.contains('fa-book')){
-            e.target.classList.remove('fa-book');
-            e.target.classList.add('fa-book-open-reader');
-        }else{
-            e.target.classList.remove('fa-book-open-reader');
-            e.target.classList.add('fa-book');
-        }
-    })
-})
-
-//Add a book to the favorite list
-starIcons.forEach((star) => {
-    star.addEventListener('click' , (e) => {
-        if(e.target.classList.contains('fa-regular')){
-            e.target.classList.remove('fa-regular');
-            e.target.classList.add('fa-solid');
-        }else{
-            e.target.classList.remove('fa-solid');
-            e.target.classList.add('fa-regular');
-        }
-    })
-})
-
-//Delete a book form the library 
-trashIcon.forEach((trash) => {
-    trash.addEventListener('click' , (e) => {
-        e.target.closest('.card').classList.add('hide');
-        setTimeout(() => {
-            e.target.closest('.card').remove()
-        }, 800);
-    })
-})
-
+});
 
 //Add a new book to the library 
-form.addEventListener('submit' , (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let bookObject = {
-        title : document.querySelector('#title').value,
-        author : document.querySelector('#author').value,
-        genre : document.querySelector('#genre').value,
-        year : document.querySelector('#year').value,
-        ageRange : document.querySelector('#age-range').value
-    }
+        title: document.querySelector('#title').value,
+        author: document.querySelector('#author').value,
+        genre: document.querySelector('#genre').value,
+        year: document.querySelector('#year').value,
+        ageRange: document.querySelector('#age-range').value
+    };
 
     createBookCard(bookObject);
-    
-})
-
+});
